@@ -1,6 +1,13 @@
 function Table(x,y) {
-  this.x_length = x;
-  this.y_length = y;
+  this.size = {
+    x: x,
+    y: y
+  }
+}
+
+// Sets current X value
+Table.prototype.Size = (x) => {
+  console.log(`${this.size[x]}x${this.size[y]}`);
 }
 
 // Export
