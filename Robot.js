@@ -1,5 +1,24 @@
 // Set avaliable face values
 const Faces = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
+// Mapping for face directions
+const dirMap = {
+  NORTH: {
+    left: 'WEST',
+    right: 'EAST'
+  },
+  EAST: {
+    left: 'NORTH',
+    right: 'SOUTH'
+  },
+  SOUTH: {
+    left: 'EAST',
+    right: 'WEST'
+  },
+  WEST: {
+    left: 'SOUTH',
+    right: 'NORTH'
+  }
+}
 
 // Constructor
 function Robot() {
@@ -56,6 +75,19 @@ Robot.prototype.Move = () => {
     case('WEST'):
       // Move robot x - 1
       this.x--;
+      break;
+  }
+}
+
+// Change the facing direction of the robot
+Robot.prototype.ChangeFace = (dir) => {
+  switch(dir){
+    case('LEFT'):
+      this.face = dirMap[this.face].left;
+      break;
+
+    case('RIGHT'):
+      this.face = dirMap[this.face].right;
       break;
   }
 }
