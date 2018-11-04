@@ -35,5 +35,30 @@ Robot.prototype.Place = (x,y,face) => {
   Robot.prototype.SetFace(face);
 };
 
+// Moves the Robot 1 place forward in face direction
+Robot.prototype.Move = () => {
+  switch(this.face){
+    case('NORTH'):
+      // Move robot y + 1
+      this.y++;
+      break;
+
+    case('EAST'):
+      // Move robot x + 1
+      this.x++;
+      break;
+
+    case('SOUTH'):
+      // Move robot y - 1
+      this.y--;
+      break;
+
+    case('WEST'):
+      // Move robot x - 1
+      this.x--;
+      break;
+  }
+}
+
 // Export
 module.exports = Robot;
