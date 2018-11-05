@@ -54,9 +54,9 @@ Robot.prototype.Report = () => {
 Robot.prototype.Place = (x,y,face) => {
   this.x_length = 4;
   this.y_length = 4;
-  Robot.prototype.SetX(x)
-  Robot.prototype.SetY(y);
-  Robot.prototype.SetFace(face);
+  !x ? console.log('Invalid PLACE command incomplete') : Robot.prototype.SetX(x)
+  !y ? console.log('Invalid PLACE command incomplete') : Robot.prototype.SetY(y)
+  !face ? console.log('Invalid PLACE command incomplete') : Robot.prototype.SetFace(face)
 };
 
 // Moves the Robot 1 place forward in face direction

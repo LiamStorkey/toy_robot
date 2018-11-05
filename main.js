@@ -15,16 +15,23 @@ let placed = false;
 rl.on('line', function(line) {
   if (!line) return;
 
-
+  // convert to uppercase and use only the first index as the command
   let input = line.toUpperCase();
-  // let params = input.split(' ')[1].split(',');
   let command = input.split(' ')[0];
 
   // switch case to take in command and run the coresponding method
   switch(command){
     case('PLACE'):
       // Get the position and face direction
-      let params = input.split(' ')[1].split(',');
+      let params = undefined;
+      // console.log(input.split(' '));
+      if (input.split(' ').length > 1) {
+        params = input.split(' ')[1].split(',');
+      }
+      else {
+        console.log('Invalid PLACE command incomplete');
+        break;
+      }
 
       // if all needed params are there
       if(!params[0] || !params[1] || !params[2]) {
