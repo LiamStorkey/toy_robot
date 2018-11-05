@@ -59,11 +59,6 @@ rl.on('line', function(line) {
       placed ? robot.Report() : console.log('Must PLACE robot on table first')
       break;
 
-    case('TEST'):
-      // check if robot on table befoer accepting command
-      RunTests();
-      break;
-
     default:
       // If anything other then the commands described above entered
       console.log('Please enter a valid command');
@@ -79,56 +74,3 @@ rl.on('line', function(line) {
   console.log('Thanks for playing');
   process.exit(0);
 });
-
-function RunTests(){
-  //--------TESTS--------//
-  //----------A----------//
-  robot.Place(0,0,'NORTH');
-  robot.Move();
-  robot.Report();
-  // Expected output:
-  // 0,1,NORTH
-
-  //----------B----------//
-  robot.Place(0,0,'NORTH');
-  robot.ChangeFace('LEFT');
-  robot.Report();
-  // Expected output:
-  // 0,0,WEST
-
-  //----------C----------//
-  robot.Place(1,2,'EAST');
-  robot.Move();
-  robot.Move();
-  robot.ChangeFace('LEFT');
-  robot.Move();
-  robot.Report();
-  // Expected output
-  // 3,3,NORTH
-
-  //----------D----------//
-  robot.Place(4,4,'NORTH');
-  robot.Move();
-  robot.ChangeFace('RIGHT');
-  robot.ChangeFace('RIGHT');
-  robot.Move();
-  robot.Move();
-  robot.Move();
-  robot.Move();
-  robot.ChangeFace('RIGHT');
-  robot.Move();
-  robot.Move();
-  robot.Move();
-  robot.Move();
-  robot.Report();
-  // Expected output
-  // 0,0,WEST
-
-  //----------E----------//
-  robot.Place(4,4,'NOTH');
-  robot.Place(1,1,'NORTH');
-  robot.Move();
-  robot.Report();
-  // Expected output
-  // 1,2,WEST
-}

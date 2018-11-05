@@ -47,6 +47,7 @@ Robot.prototype.SetFace = (face) => {
 // Shows the current placement and face of robot
 Robot.prototype.Report = () => {
   console.log(`${this.x}, ${this.y}, ${this.face}`);
+  return `${this.x}, ${this.y}, ${this.face}`;
 };
 
 // Places the robot in this position facing this direction
