@@ -24,7 +24,8 @@ rl.on('line', function(line) {
     case('PLACE'):
       // Get the position and face direction
       let params = undefined;
-      // console.log(input.split(' '));
+
+      // Ensure that there are params following the PLACE command
       if (input.split(' ').length > 1) {
         params = input.split(' ')[1].split(',');
       }
