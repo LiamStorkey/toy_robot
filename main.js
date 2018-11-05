@@ -81,12 +81,11 @@ rl.on('line', function(line) {
 });
 
 function RunTests(){
-  var test_robot = new Robot();
   //--------TESTS--------//
   //----------A----------//
-  test_robot.Place(0,0,'NORTH');
-  test_robot.Move();
-  test_robot.Report();
+  robot.Place(0,0,'NORTH');
+  robot.Move();
+  robot.Report();
   // Expected output:
   // 0,1,NORTH
 
@@ -106,4 +105,30 @@ function RunTests(){
   robot.Report();
   // Expected output
   // 3,3,NORTH
+
+  //----------D----------//
+  robot.Place(4,4,'NORTH');
+  robot.Move();
+  robot.ChangeFace('RIGHT');
+  robot.ChangeFace('RIGHT');
+  robot.Move();
+  robot.Move();
+  robot.Move();
+  robot.Move();
+  robot.ChangeFace('RIGHT');
+  robot.Move();
+  robot.Move();
+  robot.Move();
+  robot.Move();
+  robot.Report();
+  // Expected output
+  // 0,0,WEST
+
+  //----------E----------//
+  robot.Place(4,4,'NOTH');
+  robot.Place(1,1,'NORTH');
+  robot.Move();
+  robot.Report();
+  // Expected output
+  // 1,2,WEST
 }
