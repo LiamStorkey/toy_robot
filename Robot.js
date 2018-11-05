@@ -31,12 +31,12 @@ function Robot() {
 
 // Sets current X value
 Robot.prototype.SetX = (x) => {
-  x > 0 && x <= this.x_length ? this.x = x : console.log(`x position ${x} is not a position on the ${this.x_length}x${this.y_length} table`)
+  x >= 0 && x <= this.x_length ? this.x = x : console.log(`x position ${x} is not a position on the ${this.x_length}x${this.y_length} table`)
 }
 
 // Sets current Y value
 Robot.prototype.SetY = (y) => {
-  y > 0 && y <= this.y_length ? this.y = y : console.log(`y position ${y} is not a position on the ${this.x_length}x${this.y_length} table`)
+  y >= 0 && y <= this.y_length ? this.y = y : console.log(`y position ${y} is not a position on the ${this.x_length}x${this.y_length} table`)
 }
 
 // Sets current Face value

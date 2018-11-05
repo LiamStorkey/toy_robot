@@ -20,33 +20,57 @@ rl.on('line', function(line) {
   // let params = input.split(' ')[1].split(',');
   let command = input.split(' ')[0];
 
-
+  // switch case to take in command and run the coresponding method
   switch(command){
     case('PLACE'):
+      // Get the position and face direction
       let params = input.split(' ')[1].split(',');
+
+      // if all needed params are there
       if(!params[0] || !params[1] || !params[2]) {
         console.log('Need to give x,y coordinates and face direction to robot');
         break;
       }
+
+      // if no params there prompt user else placement is avaliable
       !params ? console.log('Need to give x,y coordinates and face direction to robot') : placed = true;
+
+      // if placement avaliable, place the robot on table
       placed ? robot.Place(params[0],params[1],params[2]) : console.log('Need to give x,y coordinates and face direction to robot');
       break;
+
     case('LEFT'):
+      // check if robot on table befoer accepting command
       placed ? robot.ChangeFace('LEFT') : console.log('Must PLACE robot on table first')
       break;
+
     case('RIGHT'):
+      // check if robot on table befoer accepting command
       placed ? robot.ChangeFace('RIGHT') : console.log('Must PLACE robot on table first')
       break;
+
     case('MOVE'):
+      // check if robot on table befoer accepting command
       placed ? robot.Move() : console.log('Must PLACE robot on table first')
       break;
+
     case('REPORT'):
+      // check if robot on table befoer accepting command
       placed ? robot.Report() : console.log('Must PLACE robot on table first')
       break;
+
+    case('TEST'):
+      // check if robot on table befoer accepting command
+      RunTests();
+      break;
+
     default:
+      // If anything other then the commands described above entered
       console.log('Please enter a valid command');
       break;
+
     case('EXIT'):
+      // Exit commandline app
       rl.close();
       break;
   }
@@ -56,9 +80,36 @@ rl.on('line', function(line) {
   process.exit(0);
 });
 
+function RunTests(){
+  var test_robot = new Robot();
+  //--------TESTS--------//
+  //----------A----------//
+  test_robot.Place(0,0,'NORTH');
+  test_robot.Move();
+  test_robot.Report();
+  // Expected output:
+  // 0,1,NORTH
 
-// robot.Place(0,0,'NORTH');
-// robot.Move();
+  // //----------B----------//
+  // robot.Place(0,0,'NORTH');
+  // robot.ChangeFace('LEFT');
+  // robot.Report();
+  // // Expected output:
+  // // 0,0,WEST
+
+  // //----------C----------//
+  // robot.Place(1,2,'EAST');
+  // robot.Move();
+  // robot.Move();
+  // robot.ChangeFace('LEFT');
+  // robot.Move();
+  // robot.Report();
+  // // Expected output
+  // // 3,3,NORTH
+}
+
+  // robot.Place(0,0,'NORTH');
+  // robot.Move();
 // robot.ChangeFace('LEFT');
 // robot.Move();
 // robot.ChangeFace('LEFT');
