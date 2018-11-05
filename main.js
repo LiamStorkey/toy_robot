@@ -11,32 +11,36 @@ const rl = readline.createInterface({
 rl.setPrompt('Welcome to the Toy Robot simulator, start sending commands to the robot (PLACE, LEFT, RIGHT, MOVE, REPORT, EXIT)\n');
 rl.prompt(true);
 
+let placed = false;
 rl.on('line', function(line) {
   if (!line) return;
 
+
   let input = line.toUpperCase();
-  let parms = input.split(' ')[1];
+  // let params = input.split(' ')[1].split(',');
   let command = input.split(' ')[0];
 
 
   switch(command){
-    case('EXIT'):
-      rl.close();
-      break;
     case('PLACE'):
-      console.log('PLACE METHOD');
+      let params = input.split(' ')[1].split(',');
+      !params ? console.log('Need to give x,y coordinates and face direction to robot') : placed = true;
+      placed ? robot.Place(params[0],params[1],params[2]) : console.log('Need to give x,y coordinates and face direction to robot');
       break;
     case('LEFT'):
-      console.log('LEFT METHOD');
+      placed ? robot.ChangeFace('LEFT') : console.log('Must PLACE robot on table first')
       break;
     case('RIGHT'):
-      console.log('RIGHT METHOD');
+      placed ? robot.ChangeFace('RIGHT') : console.log('Must PLACE robot on table first')
       break;
     case('MOVE'):
-      console.log('MOVE METHOD');
+      placed ? robot.Move() : console.log('Must PLACE robot on table first')
       break;
     case('REPORT'):
-      console.log('REPORT METHOD');
+      placed ? robot.Report() : console.log('Must PLACE robot on table first')
+      break;
+    case('EXIT'):
+      rl.close();
       break;
   }
 })
