@@ -31,12 +31,12 @@ function Robot() {
 
 // Sets current X value
 Robot.prototype.SetX = (x) => {
-  this.x = x;
+  x > 0 && x <= this.x_length ? this.x = x : console.log(`x position ${x} is not a position on the ${this.x_length}x${this.y_length} table`)
 }
 
 // Sets current Y value
 Robot.prototype.SetY = (y) => {
-  this.y = y;
+  y > 0 && y <= this.y_length ? this.y = y : console.log(`y position ${y} is not a position on the ${this.x_length}x${this.y_length} table`)
 }
 
 // Sets current Face value
@@ -51,11 +51,11 @@ Robot.prototype.Report = () => {
 
 // Places the robot in this position facing this direction
 Robot.prototype.Place = (x,y,face) => {
-  Robot.prototype.SetX(x);
+  this.x_length = 4;
+  this.y_length = 4;
+  Robot.prototype.SetX(x)
   Robot.prototype.SetY(y);
   Robot.prototype.SetFace(face);
-  this.x_length = 5;
-  this.y_length = 5;
 };
 
 // Moves the Robot 1 place forward in face direction
@@ -65,22 +65,22 @@ Robot.prototype.Move = () => {
   switch(this.face){
     case('NORTH'):
       // Move robot y + 1
-      this.y + 1 >= 0 && this.y < this.y_length ? this.y++ : console.log('Invalid move')
+      this.y + 1 >= 0 && this.y + 1 <= this.y_length ? this.y++ : console.log('Invalid move')
       break;
 
       case('EAST'):
       // Move robot x + 1
-      this.x + 1 >= 0 && this.x < this.x_length ? this.x++ : console.log('Invalid move')
+      this.x + 1 >= 0 && this.x + 1 <= this.x_length ? this.x++ : console.log('Invalid move')
       break;
 
       case('SOUTH'):
       // Move robot y - 1
-      this.y - 1 >= 0 && this.y - 1 < this.x_length ? this.y-- : console.log('Invalid move')
+      this.y - 1 >= 0 && this.y - 1 <= this.x_length ? this.y-- : console.log('Invalid move')
       break;
 
       case('WEST'):
       // Move robot x - 1
-      this.x - 1 >= 0 && this.y - 1 < this.x_length ? this.x-- : console.log('Invalid move')
+      this.x - 1 >= 0 && this.y - 1 <= this.x_length ? this.x-- : console.log('Invalid move')
 
       break;
   }

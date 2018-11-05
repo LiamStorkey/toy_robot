@@ -24,6 +24,10 @@ rl.on('line', function(line) {
   switch(command){
     case('PLACE'):
       let params = input.split(' ')[1].split(',');
+      if(!params[0] || !params[1] || !params[2]) {
+        console.log('Need to give x,y coordinates and face direction to robot');
+        break;
+      }
       !params ? console.log('Need to give x,y coordinates and face direction to robot') : placed = true;
       placed ? robot.Place(params[0],params[1],params[2]) : console.log('Need to give x,y coordinates and face direction to robot');
       break;
