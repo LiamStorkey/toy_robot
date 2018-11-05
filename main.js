@@ -1,16 +1,19 @@
 const readline = require('readline');
-var Robot = require('./Robot');
+var Robot = require('./lib/Robot');
 
 var robot = new Robot();
 
+// Create readline interface
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
+// promt the user for input
 rl.setPrompt('Welcome to the Toy Robot simulator, start sending commands to the robot (PLACE, LEFT, RIGHT, MOVE, REPORT, EXIT)\n');
 rl.prompt(true);
 
+// Var to tell if Robot has been placed on the table yet
 let placed = false;
 rl.on('line', function(line) {
   if (!line) return;
@@ -79,6 +82,7 @@ rl.on('line', function(line) {
   }
 })
 .on('close', function() {
+  // Close the command line reader
   console.log('Thanks for playing');
   process.exit(0);
 });

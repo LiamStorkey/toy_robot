@@ -1,5 +1,5 @@
 const assert = require('assert');
-var Robot = require('./Robot');
+var Robot = require('./lib/Robot');
 
 var robot = new Robot();
 
@@ -46,10 +46,4 @@ it('Expected output 1, 2, NORTH', () => {
   robot.Place(1,1,'NORTH');
   robot.Move();
   assert.equal(robot.Report(), '1, 2, NORTH')
-});
-
-it('Expected output 1, 1, NORTH', () => {
-  robot.Place(4);
-  robot.Place(1,1,'NORTH');
-  assert.equal(robot.Report(), '1, 1, NORTH')
 });
