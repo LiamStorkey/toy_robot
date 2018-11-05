@@ -90,30 +90,20 @@ function RunTests(){
   // Expected output:
   // 0,1,NORTH
 
-  // //----------B----------//
-  // robot.Place(0,0,'NORTH');
-  // robot.ChangeFace('LEFT');
-  // robot.Report();
-  // // Expected output:
-  // // 0,0,WEST
+  //----------B----------//
+  robot.Place(0,0,'NORTH');
+  robot.ChangeFace('LEFT');
+  robot.Report();
+  // Expected output:
+  // 0,0,WEST
 
-  // //----------C----------//
-  // robot.Place(1,2,'EAST');
-  // robot.Move();
-  // robot.Move();
-  // robot.ChangeFace('LEFT');
-  // robot.Move();
-  // robot.Report();
-  // // Expected output
-  // // 3,3,NORTH
+  //----------C----------//
+  robot.Place(1,2,'EAST');
+  robot.Move();
+  robot.Move();
+  robot.ChangeFace('LEFT');
+  robot.Move();
+  robot.Report();
+  // Expected output
+  // 3,3,NORTH
 }
-
-  // robot.Place(0,0,'NORTH');
-  // robot.Move();
-// robot.ChangeFace('LEFT');
-// robot.Move();
-// robot.ChangeFace('LEFT');
-// robot.Move();
-// robot.ChangeFace('LEFT');
-// robot.Move();
-// robot.Report();
