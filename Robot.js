@@ -65,22 +65,22 @@ Robot.prototype.Move = () => {
   switch(this.face){
     case('NORTH'):
       // Move robot y + 1
-      this.y + 1 >= 0 && this.y <= this.y_length - 1 ? this.y++ : console.log('Invalid move')
+      this.y + 1 >= 0 && this.y < this.y_length ? this.y++ : console.log('Invalid move')
       break;
 
       case('EAST'):
       // Move robot x + 1
-      this.x + 1 >= 0 && this.x <= this.x_length - 1 ? this.x++ : console.log('Invalid move')
+      this.x + 1 >= 0 && this.x < this.x_length ? this.x++ : console.log('Invalid move')
       break;
 
       case('SOUTH'):
       // Move robot y - 1
-      this.y - 1 >= 0 && this.y <= this.y_length - 1 ? this.y-- : console.log('Invalid move')
+      this.y - 1 >= 0 && this.y - 1 < this.x_length ? this.y-- : console.log('Invalid move')
       break;
 
       case('WEST'):
       // Move robot x - 1
-      this.x - 1 >= 0 && this.y <= this.x_length - 1 ? this.x-- : console.log('Invalid move')
+      this.x - 1 >= 0 && this.y - 1 < this.x_length ? this.x-- : console.log('Invalid move')
 
       break;
   }

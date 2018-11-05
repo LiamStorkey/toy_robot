@@ -39,6 +39,9 @@ rl.on('line', function(line) {
     case('REPORT'):
       placed ? robot.Report() : console.log('Must PLACE robot on table first')
       break;
+    default:
+      console.log('Please enter a valid command');
+      break;
     case('EXIT'):
       rl.close();
       break;
