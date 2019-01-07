@@ -17,5 +17,5 @@ action "Test" {
 action "Mocha" {
   uses = "actions/npm@master"
   needs = ["Test"]
-  args = "mocha"
+  runs = "mocha"
 }
