@@ -15,7 +15,6 @@ it('Expected output 0, 0, WEST', () => {
   assert.equal(robot.Report(), '0, 0, WEST')
 });
 
-
 it('Expected output 3, 3, NORTH', () => {
   robot.Place(1,2,'EAST');
   robot.Move();
