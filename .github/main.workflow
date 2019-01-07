@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["Build"]
+  resolves = ["Test"]
 }
 
 action "Build" {
@@ -9,7 +9,7 @@ action "Build" {
 }
 
 action "Test" {
-  needs = "Build"
-  uses = "actions/npm@master"
+  uses = "actions/npm@e7aaefed7c9f2e83d493ff810f17fa5ccd7ed437"
+  needs = ["Build"]
   args = "test"
 }
